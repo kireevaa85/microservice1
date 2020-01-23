@@ -2,23 +2,20 @@ package ru.gpb.microservice1.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GotMethodController {
     private static final Logger logger = LoggerFactory.getLogger(GotMethodController.class);
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String index() {
         logger.info("got indexRequest in Microservice1");
         return "Greetings from Microservice1";
     }
 
     //http://localhost:8080/1
-    @RequestMapping(method = RequestMethod.GET, value = "/{methodNumber}")
+    @GetMapping(value = "/{methodNumber}")
     public String callMethod(@PathVariable("methodNumber") String name) {
         switch (name) {
             case "1":
@@ -35,6 +32,11 @@ public class GotMethodController {
                 break;
         }
         return "Not got any method in Microservice1 :(";
+    }
+
+    @GetMapping("/stop")
+    public void stop() {
+        System.exit(0);
     }
 
     private void method1() {
