@@ -34,8 +34,8 @@ public class GotMethodController {
         return "Not got any method in Microservice1 :(";
     }
 
-    @GetMapping("/stop")
-    public void stop() {
+    @GetMapping("/exit")
+    public void exit() {
         System.exit(0);
     }
 
