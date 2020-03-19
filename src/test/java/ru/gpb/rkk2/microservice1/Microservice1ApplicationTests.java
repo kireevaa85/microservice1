@@ -1,4 +1,4 @@
-package ru.gpb.microservice1;
+package ru.gpb.rkk2.microservice1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
