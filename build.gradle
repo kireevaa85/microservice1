@@ -11,7 +11,7 @@ java {
 }
 
 group = 'ru.gpb.rkk2'
-version = '1.0.0'
+version = '1.0.0.371-f76fj36'
 
 repositories {
     mavenCentral()
