@@ -1,13 +1,20 @@
 version: "3.7"
+
+networks:
+  default:
+    external:
+      name: coverage
+
 services:
+
   microservice1:
     image: kireevaa85/microservice1:1.0.0.371-f76fj36
     restart: always
     ports:
       - "8080:8080"
     volumes:
-      - /Users/kireevaa85/projects_gpb/executiondataserver/libs/coverage-1.0.0.133-t82fj05.jar:/path_to_coverage_agent/coverage.jar
+      - /Users/kireevaa85/projects_gpb/coverage/build/libs/coverage-1.0.0.133-t82fj05.jar:/path_to_coverage_agent/coverage.jar
     environment:
       APP_NAME: microservice1-1.0.0.371-f76fj36
-      JAVA_OPTS: -javaagent:/path_to_coverage_agent/coverage.jar=includes=ru.gpb.rkk2.*,sessionid=microservice1-1.0.0.371-f76fj36,address=127.0.0.1,port=6300
+      JAVA_OPTS: -javaagent:/path_to_coverage_agent/coverage.jar=includes=ru.gpb.rkk2.*,sessionid=microservice1-1.0.0.371-f76fj36,address=executiondataserver,port=6300
       INSTANCE_ID: microservice1
