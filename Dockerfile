@@ -1,4 +1,5 @@
-FROM java:8-jdk-alpine
+#FROM java:8-jdk-alpine
+FROM openjdk:17-alpine
 COPY ./build/libs/*.jar /usr/app/
 WORKDIR /usr/app
 ARG APP_NAME

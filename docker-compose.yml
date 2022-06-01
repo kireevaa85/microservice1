@@ -8,13 +8,17 @@ networks:
 services:
 
   microservice1:
-    image: kireevaa85/microservice1:1.0.0.371-f76fj36
+#    image: kireevaa85/microservice1:1.0.0.371-f76fj36
+    image: kireevaa85/microservice1:1.0.0.373-f76fj37
     restart: always
     ports:
       - "8080:8080"
     volumes:
-      - /Users/kireevaa85/projects_gpb/coverage/build/libs/coverage-1.0.0.133-t82fj05.jar:/path_to_coverage_agent/coverage.jar
+#      - /Users/kireevaa85/projects/executiondataserver/libs/coverage-1.0.0.133-t82fj05.jar:/path_to_coverage_agent/coverage.jar
+      - /Users/kireevaa85/projects/executiondataserver/libs/coverage-1.0.0.143-t82fj07.jar:/path_to_coverage_agent/coverage.jar
     environment:
-      APP_NAME: microservice1-1.0.0.371-f76fj36
-      JAVA_OPTS: -javaagent:/path_to_coverage_agent/coverage.jar=includes=ru.gpb.rkk2.*,sessionid=microservice1-1.0.0.371-f76fj36,address=executiondataserver,port=6300
+#      APP_NAME: microservice1-1.0.0.371-f76fj36
+      APP_NAME: microservice1-1.0.0.373-f76fj37
+#      JAVA_OPTS: -javaagent:/path_to_coverage_agent/coverage.jar=includes=ru.connector.*,sessionid=microservice1-1.0.0.371-f76fj36,address=executiondataserver,port=6300
+      JAVA_OPTS: -javaagent:/path_to_coverage_agent/coverage.jar=includes=ru.connector.*,sessionid=microservice1-1.0.0.373-f76fj37,address=executiondataserver,port=6300
       INSTANCE_ID: microservice1
